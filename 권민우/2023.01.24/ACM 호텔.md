@@ -34,3 +34,41 @@
 
  <p>프로그램은 표준 출력에 출력한다. 각 테스트 데이터마다 정확히 한 행을 출력하는데, 내용은 N 번째 손님에게 배정되어야 하는 방 번호를 출력한다.</p>
 
+
+### Solution
+- 기존 답안
+```python
+import sys
+input = sys.stdin.readline
+
+T = int(input())
+
+for _ in range(T):
+    H,W,N = map(int,input().split())
+    checkin_lst = []
+    cnt = 0
+
+    for j in range(1, W+1):
+        if cnt == N:
+            break
+
+        for k in range(1, H+1):
+            if cnt == N:
+                break
+            checkin_lst.append((k*100 + j))
+            cnt += 1
+    print(checkin_lst[-1])
+```
+- 수식을 활용한 답안
+```python
+import sys
+input = sys.stdin.readline
+
+T = int(input())
+
+for _ in range(T):
+    H, W, N = map(int, input().split())
+    if N%H == 0:
+        print(H*100 + N//H)
+    else:
+        print(N%H*100 + N//H + 1)
