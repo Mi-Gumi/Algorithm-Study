@@ -1,3 +1,4 @@
+#이정훈
 N , M = map(int,input().split())
 max_divisor = 1
 min_multiple = N*M
