@@ -13,7 +13,7 @@ for _ in range(N):
     elif 'pop' in command:
         if not queue:
             print(-1)
-        # queue 리스트의 0번 인덱스 요소를 제거하면서 동시에 반환해 출력력
+        # queue 리스트의 0번 인덱스 요소를 제거하면서 동시에 반환해 출력
         else:
             print(queue.pop(0))
     elif 'size' in command:
