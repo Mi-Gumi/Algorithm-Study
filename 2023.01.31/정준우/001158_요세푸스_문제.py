@@ -27,7 +27,6 @@ print(f'<{", ".join(map(str, answer_list))}>')
 
 
 '''
-
 class Node:
     def __init__(self, element):
         self.element = element
@@ -74,7 +73,7 @@ def josephus(m, n):
         result.insert(i)
 
     for _ in range(n-2):
-        result.fint_next(m)
+        result.find_next(m)
         result.remove(result.current)
     result.show()
 
