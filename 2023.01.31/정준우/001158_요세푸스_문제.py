@@ -20,3 +20,62 @@ while len(round_table) != 0:
 
 # 완성된 리스트에서 [ ]를 빼고 요소 사이에 ,  를 넣기 위해 join 메서드 사용
 print(f'<{", ".join(map(str, answer_list))}>')
+
+
+
+
+
+
+'''
+
+class Node:
+    def __init__(self, element):
+        self.element = element
+        self.next = None
+
+
+class C_linkedlist:
+    def __init__(self):
+        self.head = Node('head')
+        self.head.next = self.head
+        self.current = self.head
+
+    def insert(self, new):
+        new_node = Node(new)
+        new_node.next = self.head
+        self.current.next = new_node
+        self.current = new_node
+
+    def find_next(self, n):
+        for _ in range(n):
+            if self.current.next.element == 'head':
+                self.current = self.current.next
+            self.current = self.current.next
+
+    def remove(self, node):
+        prev_node = self.head
+        while prev_node.next != node:
+            prev_node = prev_node.next
+        prev_node.next = prev_node.next.next
+
+    def show(self):
+        cur_node = self.head
+        while cur_node.next.element != 'head':
+            print(cur_node.element, end = ', ')
+            cur_node = cur_node.next
+        print(cur_node.element)
+
+
+n, m = map(int, input().split())
+
+def josephus(m, n):
+    result = C_linkedlist()
+    for i in range(1, n + 1):
+        result.insert(i)
+
+    for _ in range(n-2):
+        result.fint_next(m)
+        result.remove(result.current)
+    result.show()
+
+'''
