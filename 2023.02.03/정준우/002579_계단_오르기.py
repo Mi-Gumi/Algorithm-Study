@@ -1,3 +1,5 @@
+# 마지막 계단은 무조건 밟아야하니, 어떻게 올라가는가보다는 여기까지 어떻게 올라왔는가
+
 stairs = int(input())
 
 scores = [int(input()) for _ in range(stairs)]
