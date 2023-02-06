@@ -10,3 +10,4 @@ for i in range(N // 3 + 1):
 else:
     count = -1
 print(count)
+
