@@ -23,7 +23,7 @@
  <p>첫째 줄에 DFS를 수행한 결과를, 그 다음 줄에는 BFS를 수행한 결과를 출력한다. V부터 방문된 점을 순서대로 출력하면 된다.</p>
 
 ---
-```
+```python
 N, M, V = map(int,input().split()) # N 정점 수, M 간선 수, V 탐색 시작 정점
 g = [[] for _ in range(N+1)] # 그래프
 visited1 = [False]*(N+1) # dfs 방문 여부
