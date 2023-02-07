@@ -12,8 +12,8 @@ for i in range(N):
     elif i == 2:
         best_record[i] = max(stairs[0] + stairs[2], stairs[1] + stairs[2])
     else:
-        P1 = best_record[i - 3] + stairs[i - 1] + stairs[i]
-        P2 = best = best_record[i - 2] + stairs[i]
+        P1 = best_record[i - 3] + stairs[i - 1] + stairs[i]  #바로 전에서 왔으니까 그 전에 점프함
+        P2 = best = best_record[i - 2] + stairs[i] #점프했으니까 그 전의 행적은 don't care
         if P1 > P2 :
             best_record[i] = P1
 
