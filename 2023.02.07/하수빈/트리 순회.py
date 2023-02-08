@@ -8,7 +8,7 @@ def preorder(tree, root):
     # root가 '.'이 아니라면
     if root != '.':
 
-        # 각 노드에 대해 root -> 왼쪽 -> 오른쪽 순으로 출력
+        # 각 노드에 대해 root를 출력하고 왼쪽 -> 오른쪽 순으로 다시 전위순회
         print(root, end='')
         preorder(tree, tree[root][0])
         preorder(tree, tree[root][1])
@@ -19,7 +19,7 @@ def preorder(tree, root):
 def inorder(tree, root):
     if root != '.':
 
-        # 각 노드에 대해 
+        # 각 노드에 대해 왼쪽을 중위 순회 한 후 root를 출력하고 오른쪽을 다시 중위순회
         inorder(tree, tree[root][0])
         print(root, end='')
         inorder(tree, tree[root][1])
@@ -28,6 +28,8 @@ def inorder(tree, root):
 
 def postorder(tree, root):
     if root != '.':
+
+        # 각 노드에 대해 왼쪽 -> 오른쪽 순서로 후위순회 한 후 root를 출력
         postorder(tree, tree[root][0])
         postorder(tree, tree[root][1])
         print(root, end='')
@@ -35,15 +37,21 @@ def postorder(tree, root):
 
 
 N = int(input())
+
+# 딕셔너리 형태로 트리 선언
 tree = {}
 
+# item을 키로 갖는 값에 left와 right로 이루어진 배열을 추가
 for _ in range(N):
     item, left, right = input().split()
     tree[item] = [left, right]
 
+# 전위순회
 preorder(tree, 'A')
 print()
+# 중위순회
 inorder(tree, 'A')
 print()
+# 후위순회
 postorder(tree, 'A')
 print()
