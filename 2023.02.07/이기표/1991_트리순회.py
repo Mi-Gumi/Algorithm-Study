@@ -54,6 +54,3 @@ post_order(tree['A'])
 
 
 
-
-
-

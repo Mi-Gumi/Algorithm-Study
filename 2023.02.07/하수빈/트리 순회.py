@@ -25,7 +25,7 @@ def inorder(tree, root):
         inorder(tree, tree[root][1])
     return
 
-
+# 후위 순회
 def postorder(tree, root):
     if root != '.':
         postorder(tree, tree[root][0])
@@ -45,5 +45,5 @@ preorder(tree, 'A')
 print()
 inorder(tree, 'A')
 print()
-postorder(tree, 'A')
+postorder(tree, 'A'회
 print()
