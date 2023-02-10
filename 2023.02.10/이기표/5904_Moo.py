@@ -9,10 +9,10 @@ def moo_game(N, degree, s_len):
 
     if N <= s_len:
         return moo_game(N, degree, s_len)
-    elif N == s_len+1:
+    elif N - s_len == 1:
         return 'm'
     elif N > (s_len + 1) + degree + 3: # 중간값보다 뒤에 있을 경우
-        return moo_game(N, degree, N - (s_len+1) - degree - 3)    
+        return moo_game(N - (s_len+1) - degree - 3, degree, s_len)    
     else: return 'o'
 
 
