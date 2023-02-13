@@ -20,8 +20,10 @@ def daq(target, length ,cnt):
     elif target <= pre: # 목표하는 값이 S(n-1) 값 보다 작을 경우 -> S(n-1)로 이동
         target = target - pre if target - pre > 0 else target  # 뒤에 있는 친구가 올 경우, target 의 위치는 그냥 target 
         return daq(target, pre_length, cnt-1)
+    
     elif target <= mid: # 목표하는 값이 중간의 mooo 에 존재할 경우
         return 'm' if target == pre + 1 else 'o' # 중간 mooo 의 첫번째는 pre +1
+    
     elif target <= next_length: # 목표하는 값이 중간보다는 큰데, 최대값 보다 값 보다 작을 경우
         return daq(target-mid, pre_length, cnt-1) # S(n-1)로 이동
     
