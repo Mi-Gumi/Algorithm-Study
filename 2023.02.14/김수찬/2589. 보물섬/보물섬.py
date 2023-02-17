@@ -29,13 +29,17 @@ def bfs(x,y):
   while que:
     now = que.popleft()
     i,j,d = now[0], now[1],now[2]
-    if Max < d: Max = d
-    if is_travel[i][j]: continue
+    if Max < d: 
+      Max = d
+    if is_travel[i][j]: 
+      continue
     for k in range(4):
       nx = i + dx[k]
       ny = j + dy[k]
-      if nx < 0 or ny < 0 or nx >= N or ny >= M: continue
-      if mapp[nx][ny] == 'W': continue
+      if nx < 0 or ny < 0 or nx >= N or ny >= M: 
+        continue
+      if mapp[nx][ny] == 'W': 
+        continue
       is_travel[i][j] = True
       que.append((nx,ny,d+1))
   return Max-1

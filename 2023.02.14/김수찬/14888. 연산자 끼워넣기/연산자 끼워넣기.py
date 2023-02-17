@@ -12,33 +12,31 @@ def devide(a,b):
   return rlt
 
 
-def dfs(i, compare):  
+def dfs(depth, compare):  
     global oper, min, max # 전역변수 등록해야 업데이트 됨
     if(sum(oper) == 0):
-        if(compare > max):
-            max = compare
-        if(compare<min):
-            min = compare
+        if(compare > max): max = compare
+        if(compare<min): min = compare
         return
     
     if(oper[0]>0):
         oper[0] -= 1
-        dfs(i+1, compare + numbers[i])
+        dfs(depth+1, compare + numbers[depth])
         oper[0] += 1
         
     if(oper[1]>0):
         oper[1] -= 1
-        dfs(i+1, compare - numbers[i])
+        dfs(depth+1, compare - numbers[depth])
         oper[1] += 1
         
     if(oper[2]>0):
         oper[2] -= 1
-        dfs(i+1, compare * numbers[i])
+        dfs(depth+1, compare * numbers[depth])
         oper[2] += 1
         
     if(oper[3]>0):
         oper[3] -= 1
-        dfs(i+1, devide(compare,numbers[i]))
+        dfs(depth+1, devide(compare,numbers[depth]))
         oper[3] += 1    
 
 dfs(1,numbers[0])

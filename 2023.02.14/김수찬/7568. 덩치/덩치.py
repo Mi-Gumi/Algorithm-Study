@@ -22,4 +22,3 @@ for i in range(len(people)):
     
 for i in range(len(ans)):
     print(ans[i],end = ' ')
-   
