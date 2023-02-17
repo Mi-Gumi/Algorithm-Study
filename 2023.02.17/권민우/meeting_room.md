@@ -39,9 +39,8 @@ for i in range(N):
     if cnt == 0:
         cnt += 1
         end = time_lst[i][1]
-        continue
 
-    if time_lst[i][0] >= end:
+    elif time_lst[i][0] >= end:
         cnt += 1
         end = time_lst[i][1]
 
