@@ -2,11 +2,11 @@ import sys
 input = sys.stdin.readline
 N = int(input())
 
-lopes = [int(input()) for i in range(N)]
-lopes.sort()
-for i in range(N) :
-    lopes[i] *= N-i
-print(max(lopes))
+ropes = [int(input()) for i in range(N)]
+ropes.sort()
+for i in range(N) : #최소값 * 사용한 로프 수 
+    ropes[i] *= N-i
+print(max(ropes)) # 모든 경우의 수중 최대중량
 
 # cnt = 1
 # last = 0
