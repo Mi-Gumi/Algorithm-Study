@@ -1,11 +1,10 @@
 import sys
 input = sys.stdin.readline
 N = int(input())
+print(max([(N - i)*k for i,k in enumerate([int(input()) for i in range(N)].sort())]))
 
-lopes = [int(input()) for i in range(N)]
-lopes.sort()
 for i in range(N) :
-    lopes[i] *= N-i
+    lopes[i] *= N-i # 아이디어 좋다
 print(max(lopes))
 
 # cnt = 1

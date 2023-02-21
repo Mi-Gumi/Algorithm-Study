@@ -24,7 +24,7 @@ for word in words:
 
 # 큰 자리수부터 다루기 위해 내림차순으로 정렬
 word_dict = sorted(word_dict.items(), reverse = True, key = lambda x: x[1])
-
+## ABB + BB + BB + BB + BB + BB + BB+ BB + BB+ BB + BB
 answer = 0
 
 # 딕셔너리의 각 value에 저장된 자리수 관련 숫자에 차례로 곱할 숫자 리스트

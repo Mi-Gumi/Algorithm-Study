@@ -13,6 +13,7 @@ for _ in range(N):
 for i in range(N):
   r[i] = ['0']*(temp - len(r[i])) + r[i]
   
+  
 num_dic = dict() # 문자열을 숫자 형태로 바꾸기 위한 dict
 for j in range(temp): # 열 방향 탐색
   for i in range(N):  # 행 방향 탐색
@@ -20,7 +21,6 @@ for j in range(temp): # 열 방향 탐색
     if not num_dic.get(r[i][j]): # diction 형태로 저장
       num_dic.setdefault(r[i][j], 0) # 처음에는 cnt를 했지만, 반례가 있음..
 
-    
     num_dic[r[i][j]] += 10**((temp-1)-j) ## 그래서 가중치 뒀음
 
 
