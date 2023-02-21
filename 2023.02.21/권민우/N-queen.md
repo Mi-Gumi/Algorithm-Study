@@ -23,8 +23,11 @@
 ### 출력 
 
  <p>첫째 줄에 퀸 N개를 서로 공격할 수 없게 놓는 경우의 수를 출력한다.</p>
+
 ---
+
 ### Solution
+
 ```python
 # 유망성 체크
 def ispromising(row):
