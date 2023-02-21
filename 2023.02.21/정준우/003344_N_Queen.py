@@ -7,7 +7,6 @@ def set_queen(current_row):
     # 모든 퀸이 제대로 놓아져서 마지막 행까지 탐색되면 놓을 수 있는 경우의 수 +1
     if current_row == size:
         able_count += 1
-        return
 
     # [행 - 해당 행에 퀸을 놓은 열] 관계만 필요하기 때문에, 이차원 배열을 사용할 필요까지는 없음
     # queened의 인덱스는 행, 각 행의 값은 해당 행에 퀸을 놓은 열의 인덱스
