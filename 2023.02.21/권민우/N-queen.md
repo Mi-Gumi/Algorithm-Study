@@ -53,3 +53,4 @@ cnt = 0
 
 nqueen(0)
 print(cnt)
+```
