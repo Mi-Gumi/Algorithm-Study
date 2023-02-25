@@ -19,3 +19,5 @@ for i in range(N):
         data.append(com[1]) # 커서 왼쪽 리스트에 push
 for j in range(len(backup)):
     data.append(backup.pop())
+
+print(''.join(data))
