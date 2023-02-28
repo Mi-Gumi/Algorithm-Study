@@ -2,28 +2,25 @@ N = int(input())
 pay = list(map(int,input().split()))
 total = int(input())
 
-if sum(pay) <= total: ## 예산이 pay에 가격에 들어 맞다면,
-    print(max(pay)) ## 예산의 최댓값 출력
+if sum(pay) <= total: ## 예산이 초과되지 않는다면, 예산 중 최대값을 출력
+    print(max(pay))
 else:
-    avg = total//N
-## 알고리즘 분류 = 이분탐색 --> 이분탐색으로 문제풀기
-    pay.sort()
+    ## 필요한 것은 예산 분배금 중 최댓값.. 
+    # 어떤 예산이 얼마 인지는 바뀐다. => ex) 150 못줘 127만 받아가
+    # 따라서 탐색을 통해 최대한으로 분배할 수 있는 분배금을 찾아보자.
     start = 0
     end = max(pay)
-    while start <= end:
-        mid = (start + end)//2 # 예산 분배금의 중간값 파악
-        curr = 0 # 예산 분배금 
+    while start <= end:        # min 값이 max값 보다 더 커질 경우 끝
+        mid = (start + end)//2 # mid 값은 중앙값으로 설정 (이분탐색) 
+        curr = 0               # 예산 분배금 의 총 합
+        for tax in pay:        # 각 지역마다 필요한 예산들이랑 현재 줄 값이랑 비교
+            if tax >= mid:     # 예산이 분배금(mid) 보다 클 경우 분배금을 나눠줌
+                curr += mid
+            else:              # 예산이 분배금보다 작을 경우 예산을 주면 됨
+                curr += tax
         
-        ## 예산 분배금을 분배를 한 다음 다시 체크 -> 분배를 한다음 다시채크 --> ...
-        for tax in pay:
-            if tax >= mid:  # 만약에 우리가 원하는 분배금이 mid 보다 클 경우
-                curr += mid # 예산 분배금을 mid 값으로 설정
-            else:
-                curr += tax # 그렇지 않을 경우 원하는 예산값으로 제공
-                
-        # 트라이 때 발생하는 예산 분배금
-        if curr <= total:   # total 보다 작을 경우
-            start = mid + 1 # 최저 예상 분배금을 조금더 높게 설정해 다시 탐색
-        else:               # total 보다 클 경우 
-            end = mid - 1   # 최고 분배금을 예상보다 조금 더 낮게 설정하여 다시 탐색
+        if curr <= total:      # curr -> 현재 분배금이 total 분배금보다 작을 경우
+            start = mid + 1    # 분배금 총량을 늘려본다
+        else:                  # curr -> 현재 분배금이 total분배금 보다 클 경우
+            end = mid - 1      # 분배금 총량을 낮춰본다
     print(end)
