@@ -21,21 +21,26 @@ while True :
                  dirty = True
                  break
     if dirty :
-        while True :
+        while True : # 청소할 방향까지 회전
             look = (look + 3 ) % 4
-            rr, cc = r +d[look][0] , c + d[look][1]
+            rr, cc = r + d[look][0] , c + d[look][1]
             if 0<= rr < N and 0<= cc < M :
                 if room[rr][cc] == 0 :
                     r, c = rr, cc
                     break
         
     else :
+        # 후진
         rr, cc = r - d[look][0] , c - d[look][1]
         if 0<= rr < N and 0<= cc < M :
+            # 벽이 아니면 ok
             if room[rr][cc] != 1 :
                 r, c = rr, cc
                 continue
+            # 벽이면 not ok
             else :
                 break
+        else :
+            break
 print(clean)
     
