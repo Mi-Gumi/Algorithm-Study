@@ -50,21 +50,26 @@ import sys
 input = sys.stdin.readline
 from collections import deque
 
+# 뱀 함수, 수빈이 코드 보고 알았는데 뱀은 snake였음 ;
 def baam(x, y, idx):
     global second
+    # 시작 값 큐에 넣기
     queue = deque([(x, y)])
     arr[x][y] = 2
-
+    
+    # 계속 돌린다.
     while True:
         second += 1
         x = x + d[idx][0]
         y = y + d[idx][1]
 
         if 0 <= x < N and 0 <= y < N:
+	    # 이동한 자리가 사과면 사과자리를 뱀의 머리로 바꾸고 큐에 추가
             if arr[x][y] == 1:
                 arr[x][y] = 2
                 queue.append((x, y))
                 
+		# 지금 시간과 move리스트의 이동과 같은 시간이 있다면 방향 꺾어주기
                 for i in move:
                     if i[0] == second:
                         if i[1] == 'L':
@@ -73,13 +78,17 @@ def baam(x, y, idx):
                         else:
                             idx = (idx + 1) % 4
                             break
-
+	    
+	    # 이동한 자리가 비었다면
             elif arr[x][y] == 0:
+	    	# 이동한 자리 뱀의 머리로 바꾸고
                 arr[x][y] = 2
                 queue.append((x,y))
+		# queue의 첫 값을 빼서 arr 꼬리 자리를 빈자리로 만들기
                 tail_x, tail_y = queue.popleft()
                 arr[tail_x][tail_y] = 0
-
+		
+		# 마찬가지로 시간이 같다면 방향 꺾어주기
                 for i in move:
                     if i[0] == second:
                         if i[1] == 'L':
@@ -88,9 +97,14 @@ def baam(x, y, idx):
                         else:
                             idx = (idx + 1) % 4
                             break
+	    # 사과도 빈자리도 아니라면 그냥 종료
             else: break
-        else: break              
-
+	    
+	# x,y가 맵을 벗어나면 종료
+        else: break        
+	
+ # main
+# 시작은 초기 값인 오른쪽으로
 d = [(0,1), (1,0), (0,-1), (-1,0)] # 우 하 좌 상
     
 N = int(input())
@@ -98,20 +112,23 @@ K = int(input())
 
 arr = [[0] * N for _ in range(N)]
 
+# 사과 위치 생성
 for _ in range(K):
     x, y = map(int, input().split())
     arr[x-1][y-1] = 1
 
+# 이동
 L = int(input())
 
 move = []
 second = 0
-idx = 3
 
+# 초와 방향을 함께 리스트에 넣어준다
 for _ in range(L):
     sec, drec = input().split()
     move.append([int(sec), drec])
 
+# 시작 위치와 idx
 baam(0,0,0)
 
 print(second)
