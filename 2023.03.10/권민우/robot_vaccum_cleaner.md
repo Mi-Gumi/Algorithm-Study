@@ -53,28 +53,40 @@ import sys
 
 input = sys.stdin.readline
 
-
+# 함수
 def check(x, y, idx):
+    # 멈출 때까지 돌아준다
     while True:
+    	# 현재자리가 청소를 하지 않았다면 청소부터
         if arr[x][y] == 0:
             arr[x][y] = 2
-
+	
+	# 네 방향 탐색
         for dr, dc in d:
             nr = x + dr
             nc = y + dc
-
+	    
+	    # 청소해야하는 칸이 있다면
             if 0 <= nr < N and 0 <= nc < M and arr[nr][nc] == 0:
+	    	# 대가리만 돌린다.
                 idx += -1
+		
+		# 넘어가면 바꿔준다.
                 if idx < 0:
                     idx = 3
+		
+		# 바꾼 방향의 위치의 앞
                 nr = x + d[idx][0]
                 nc = y + d[idx][1]
-
+		
+		# 청소해야한다면 전진
                 if arr[nr][nc] == 0:
                     x = nr
                     y = nc
                 break
-
+	
+	# 방향 탐색을 했는데 청소 해야하는 부분이 없다면 방향에 맞춰서 반대 방향으로 이동, ! 머리는 돌리지 않는다.
+	# 후진 할 수 없다면 
         else:
             if idx == 0:
                 nr = x + d[2][0]
@@ -116,6 +128,8 @@ def check(x, y, idx):
                 else:
                     return
 
+### main
+
 N, M = map(int, input().split())
 
 r, c, idx = map(int, input().split())
@@ -124,6 +138,7 @@ cnt = 0
 
 arr = [list(map(int, input().split())) for _ in range(N)]
 
+# 로봇의 위치와 방향을 가지고 들어간다.
 check(r, c, idx)
 
 for i in range(N):
