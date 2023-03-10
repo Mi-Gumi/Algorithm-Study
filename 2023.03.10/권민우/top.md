@@ -36,29 +36,40 @@ input = sys.stdin.readline
 N = int(input())
 idx = 0
 lst = list(map(int, input().split()))
+# 길이 최초 1번만 len 쓰기 위해
 arr = len(lst)
 real = []
 stack = []
 
+# idx가 lst길이 이전까지만 돌기
 while idx != arr:
     a = lst[idx]
-
+ 
+    # 스택이 있다면
     if stack:
+        # 스택이 비어있지 않다면 계속 돌리기
         while stack:
+            # 가장 가까이에 저장된 타워와 비교
             if stack[-1][0] < a:
+                # 현재 타워가 더 높다면 이전 타워 스택에서 비워주기, 높은 타워만 남게됨.
                 stack.pop()
+                
                 if not stack:
                     real.append(0)
-
+            # 가까이에 있는 타워가 더 높다면
             elif stack[-1][0] > a:
+                # 인덱스 위치 넣어주고 while문 끝내기
                 real.append(stack[-1][1] + 1)
                 break
-
+                
+        # 비교가 끝나면 현재 타워 높이와 위치를 stack 저장
         stack.append((a, idx))
+        
+    # 스택이 비어있으면 비교할 것이 없음. 바로 0을 넣어주고, 현재 탑의 높이와 위치를 stack에 넣기
     else:
         real.append(0)
         stack.append((a, idx))
-
+        
     idx += 1
 
 print(*real)
