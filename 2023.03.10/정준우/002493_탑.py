@@ -13,6 +13,7 @@ for i in range(1, num_of_tower):
     # 정답 리스트의 첫번째 요소는 무조건 0
     # 제일 아래 else문으로 인해 왼쪽에 더 높은 탑이 없다면 (0 - 1) = -1
     # tower_check가 -1이 되면 값 변화가 없으니 0으로 유지
+    # 제일 왼쪽 탑까지 비교해보고 나면 무조건 다음 tower_check는 -1  -> 종료 조건
     # 왼쪽에 높이가 더 높은 탑이 있다면, 정답 리스트의 해당 인덱스에 몇 번째 탑에서 수신하는지 기록
     while tower_check != -1:
         if height[tower_check] >= height[i]:
