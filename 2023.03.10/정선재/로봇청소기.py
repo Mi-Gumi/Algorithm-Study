@@ -1,4 +1,5 @@
-
+import sys
+input = sys.stdin.readline
 
 N,M = map(int,input().split())
 r,c,d = map(int,input().split())
@@ -8,37 +9,23 @@ di = [-1,0,1,0]
 dj = [0,1,0,-1]
 V[r][c] = 1
 cnt = 1
-flag = 1
-while flag:
+
+while 1:
+    flag = 0
     for k in range(4):
-        ni = r + di[d]
-        nj = c + dj[d]
-        if 0 <= ni < N and 0 <= nj < M and arr[ni][nj] == 0 and V[ni][nj] == 0:
+        ni = r + di[(d+3)%4]
+        nj = c + dj[(d+3)%4]
+        d = (d+3)%4
+        if 0 <= ni < N and 0 <= nj < M and arr[ni][nj] == 0 and V[ni][nj] != 1:
             V[ni][nj] = 1
             r, c = ni, nj
             cnt += 1
+            flag = 1
             break
-        
-        elif k == 3 and  (0 > ni or nj >= N or 0 > nj or nj >= M or arr[ni][nj] != 0):
-            d = (d+2)%4 
-            ni = r + di[d]
-            nj = c + dj[d]
-            if 0 <= ni < N and 0 <= nj < M and arr[ni][nj] != 1:
-                r,c = ni,nj
-                d = (d+2)%4
-
-            else:
-                flag = 0
-                break
+    
+    if flag == 0: 
+        if arr[r-di[d]][c-dj[d]] == 1: 
+            print(cnt)
+            break
         else:
-            d = (d+3)%4
-
-print(cnt)
-                
-
-                
-
-
-
-
-
+            r,c = r-di[d],c-dj[d]
