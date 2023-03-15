@@ -2,7 +2,7 @@ import sys
 input = sys.stdin.readline
 n = int(input())
 top = list(map(int,input().split()))
-an = [0] * n
+ans = [0] * n
 st = []
 for i in range(len(top)):
     while st:
