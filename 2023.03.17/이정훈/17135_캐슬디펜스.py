@@ -50,6 +50,7 @@ for archer1 in range(M-2) :
                     if enemy[dead_y][dead_x] == 1 :
                         enemy[dead_y][dead_x] = 0
                         kill += 1
+                        total_enemy -= 1
                 
                 # 적이 남았는지 체크
                 total_enemy -= sum(enemy[position_y])
