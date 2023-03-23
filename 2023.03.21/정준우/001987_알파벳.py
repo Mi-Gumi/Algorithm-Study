@@ -6,7 +6,7 @@ def useless():
     global num_of_passed_cell
 
     # 이미 봤던 좌표는 탐색에서 제외
-    stack = set([(0, 0, board[0][0])])
+    stack = set([(0, 0, board[0][0])]
 
     while stack:
         current_y, current_x, visited = stack.pop()
