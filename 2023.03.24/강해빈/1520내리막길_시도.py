@@ -1,3 +1,4 @@
+# 시간초과
 M, N = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(M)]
 move = [[1,0], [0,1], [-1,0], [0,-1]]
