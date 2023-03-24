@@ -3,7 +3,7 @@ N, M = map(int,input().split())
 ## 그냥 알파벳을 탐색할 경우 탐색하는 조건이 복잡해짐
 ## X in list 구문을 사용하지 않고 visited를 사용하기 위해 
 ## 알파벳을 숫자로 바꿈
-texts = [list(map(lambda x: ord(x) - 65, input())) for _ in range(N)]
+texts = [input() for _ in range(N)]
 is_used = [False]*26
 
 ans = 0
@@ -19,10 +19,10 @@ def dfs(start, length):
         ny = start[1] + dy[k]
         if nx<0 or ny<0 or nx>=N or ny>=M: continue
         if is_used[texts[nx][ny]]: continue
-        is_used[texts[nx][ny]] = True
+        is_used[texts[nx][ny] - ord('A')] = True
         length += 1
         dfs((nx,ny), length)
-        is_used[texts[nx][ny]] = False
+        is_used[texts[nx][ny] - ord('A')] = False
         length -= 1
     
     ans = max(ans,length)
