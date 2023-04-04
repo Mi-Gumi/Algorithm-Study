@@ -32,7 +32,18 @@ def move(k):
             # 지도에 숫자가 없다면 주사위 숫자 복사
             _map[r][c] = new_dice[5][0]
         print(new_dice[0][0])
-        # 바뀐 주사위 반환
+        # 바뀐 주사위 반환33
+
+
+
+
+
+
+
+
+
+
+        
         return new_dice
     else:
         # 주사위를 굴릴 수 없다면 기존 주사위 반환
