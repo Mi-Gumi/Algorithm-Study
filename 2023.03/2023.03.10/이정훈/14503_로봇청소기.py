@@ -18,8 +18,8 @@ while True :
         rr, cc = r + dr , c + dc
         if 0<= rr < N and 0<= cc < M :
             if room[rr][cc] == 0 :
-                 dirty = True
-                 break
+                dirty = True
+                break
     if dirty :
         while True : # 청소할 방향까지 회전
             look = (look + 3 ) % 4
