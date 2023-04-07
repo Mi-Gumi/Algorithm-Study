@@ -10,7 +10,7 @@ def connected(): # 국가마다 연결된 연결 여부를 파악
     def bfs(start): # 그룹을 연결지을 bfs 코드
         nonlocal mt, group
         que = deque([start])
-        
+    
         total= matrix[start[0]][start[1]]
         cnt = 1
         mt[start[0]][start[1]] = group
@@ -26,7 +26,6 @@ def connected(): # 국가마다 연결된 연결 여부를 파악
                     total += matrix[nx][ny]
                     cnt += 1
                     que.append((nx,ny))
-
         return total//cnt # 나누어 담길 population을 return으로 
     
     group = 1 # 그룹으로 나누어서 groups에 담을 예정
