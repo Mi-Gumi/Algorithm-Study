@@ -125,8 +125,8 @@ for bridge_length, island_no_1, island_no_2 in bridge_case:
         union(parent, island_no_1, island_no_2)
         min_bridge_length += bridge_length
 
-# 조건에 맞는 다리가 아예 없거나 안 이어진 섬이 있을 경우
-if num_of_bridges != island_no - 2 or min_bridge_length == 1:
+# 안 이어진 섬이 있을 경우
+if num_of_bridges != island_no - 2:
     print(-1)
 else:
     print(min_bridge_length)
