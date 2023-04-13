@@ -52,7 +52,7 @@ while True: # 빙산 덩어리 개수 0 또는 2이면 종료
                     mx, my, melt_cnt = melting.popleft()
                     if arr[mx][my] >= melt_cnt:
                         arr[mx][my] -= melt_cnt
-                    if melt_cnt > arr[mx][my] > 0:
+                    elif melt_cnt > arr[mx][my] > 0:
                         arr[mx][my] = 0
     if cnt == 0: # 전부 다 녹을 때까지 두 덩어리 이상으로 분리되지 않으면
         year = 0
