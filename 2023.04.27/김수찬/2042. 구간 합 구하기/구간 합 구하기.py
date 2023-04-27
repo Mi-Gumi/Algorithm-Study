@@ -3,9 +3,11 @@ import math
 N, M, K = map(int,input().split())
 
 lst = [0] + [int(input()) for _ in range(N)]
-segment_tree = [0]*(4*N) # 세그먼트 트리에 필요한 노드의 개수는 최악의 경우 N개
-# 일반적으로 perfect binary tree 형태를 바탕으로 노드를 만들게 되는데, 그렇게 되면
-# 2*2^k 개가 나온다. 이 때, 2^k의 범위는 n<= < 2N 이므로 편의상 4*N으로 본다,
+segment_tree = [0]*(4*N) # 세그먼트 트리에 필요한 노드의 개수는 최악의 경우 리프 노드 N개 모두 탐색을 진행해야한다.
+# 각각의 값은 segment_tree에서의 리프노드 들이며, 이 경우 모든 탐색을 하는 경우가 2N - 1 번을 탐색을 해야한다. (idx 를 편의상 1부터 계산한다 하면, 2N개)가 된다.
+# 세그먼트 트리의 경우 일반적으로 perfect binary tree 형태를 바탕으로 노드를 만들게 되는데, 
+# k 번째 노드를 탐색을 하기 위해서는 탐색되는 노드의 수는 총 2 * 2^k 개가 필요하며, 
+# 2*2^k 개가 나온다. 이 때, 2^k의 범위는 M<= < 2M 이며, 존재하는 노드는 2N 개 이기 때문에 M = 2N 이다. 따라서 우리가 임의로 4N을 러프하게 곱한다.
 
 # 1. 세그먼트 트리 트리 만들기
 def tree(start, end, index):
@@ -61,7 +63,7 @@ for _ in range(M+K):
     if a == 1:
         temp = c - lst[b] # 값의 차이를 업데이트 시켜준다.
         lst[b] = c
-        update(1, N, 1, b, temp) # 업데이트를
+        update(1, N, 1, b, temp) # 업데이트를 진행  
 
     elif a == 2:
         print(find(1, N, 1, b, c))

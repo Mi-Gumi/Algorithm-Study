@@ -3,7 +3,7 @@ N, M = map(int,input().split())
 matrix = [[ 0 for _ in range(B)] for _ in range(A)]
 
 robo_dir = dict()
-             #북     # 동    #남  # 서  
+            #북     # 동    #남  # 서  
 dir_xy = ((0, 1),(-1, 0),(0, -1),(1, 0))
 
 dir = {
