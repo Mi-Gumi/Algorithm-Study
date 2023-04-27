@@ -41,6 +41,7 @@ public class Main {
     	StringTokenizer st = new StringTokenizer(br.readLine(), "-");
     	int sum = Integer.MAX_VALUE;
     	
+     // hasMoreToken은 StringTokenizer에 token이 남아있으면 True, 그렇지 않으면 False를 반환
     	while (st.hasMoreTokens()) {
     		int tmp = 0;
     		
