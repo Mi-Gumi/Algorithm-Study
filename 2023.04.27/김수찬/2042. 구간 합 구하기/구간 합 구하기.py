@@ -63,7 +63,7 @@ for _ in range(M+K):
     if a == 1:
         temp = c - lst[b] # 값의 차이를 업데이트 시켜준다.
         lst[b] = c
-        update(1, N, 1, b, temp) # 업데이트를 진행  
+        update(1, N, 1, b, temp) # 업데이트를 진행 
 
     elif a == 2:
         print(find(1, N, 1, b, c))

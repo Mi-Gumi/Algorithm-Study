@@ -4,7 +4,7 @@ sys.setrecursionlimit(100000)
 def tree(start, end, index):
     # 리프노드가 곧 높이
     if start == end:
-        segment_tree[index] = start
+        segment_tree[index] = start #높이가 위차한 인덱스를 저장
         return segment_tree[index]
     
     mid = (start + end) // 2
@@ -28,7 +28,7 @@ def find(start, end, index, left, right):
     left_col = find(start, mid, index*2, left, right)
     right_col = find(mid+1, end, index*2+1, left, right)
 
-    # 높이의 정보를 찾아온다.
+    # 지금 범위 내의 높이의 정보를 찾아온다.
     if left_col == 0:
         rlt = right_col
     elif right_col == 0:
