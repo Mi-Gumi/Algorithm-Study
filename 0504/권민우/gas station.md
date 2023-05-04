@@ -62,10 +62,8 @@ import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-    	// 처음 받을 때 문자열 그대로 받기
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        // 담은 토큰들 n, m에 넣어주기
         int N = Integer.parseInt(br.readLine()); // 도시의 수
         int[] road_lst = new int[N-1];
         int[] cost = new int[N];
